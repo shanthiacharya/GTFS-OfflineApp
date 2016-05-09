@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GTFS App</title>
+    <meta name="viewport" content="width=device-width">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse  ">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">BART Schedule</a>
+              </div>
+
+            </div><!--/.container-fluid -->
+          </nav>
+    <div class="container" id="main">
+          <form class="form-inline" id="searchtrainsform">
+            <div class="form-group">
+              <label for="inputdeparture">Departure</label>
+              <!-- <input list ="departurelist" class="form-control" name="inputdeparture" id="inputdeparture" placeholder="Enter Departure Station"> -->
+              <select id="departurelist">
+                   <option value="12TH">12th St. Oakland City Center</option>
+                   <option value="16TH">16th St. Mission</option>
+                   <option value="19TH">19th St. Oakland </option>
+                   <option value="19TH_N">19th St. Oakland </option>
+                   <option value="24TH">24th St. Mission</option>
+                   <option value="ASHB">Ashby</option>
+                   <option value="BALB">Balboa Park</option>
+                   <option value="BAYF">Bay Fair</option>
+                   <option value="CAST">Castro Valley </option>
+                   <option value="CIVC">Civic Center/UN Plaza</option>
+                   <option value="COLS">Coliseum </option>
+                   <option value="COLM">Colma</option>
+                   <option value="CONC">Concord </option>
+                   <option value="DALY">Daly City </option>
+                   <option value="DBRK">Downtown Berkeley </option>
+                   <option value="DUBL">Dublin/Pleasanton </option>
+                   <option value="DELN">El Cerrito del Norte </option>
+                   <option value="PLZA">El Cerrito Plaza </option>
+                   <option value="EMBR">Embarcadero </option>
+                   <option value="FRMT">Fremont </option>
+                   <option value="FTVL">Fruitvale </option>
+                   <option value="GLEN">Glen Park </option>
+                   <option value="HAYW">Hayward </option>
+                   <option value="LAFY">Lafayette </option>
+                   <option value="LAKE">Lake Merritt </option>
+                   <option value="MCAR">MacArthur</option>
+                   <option value="MCAR_S">MacArthur</option>
+                   <option value="MLBR">Millbrae </option>
+                   <option value="MONT">Montgomery St.</option>
+                   <option value="NBRK">North Berkeley</option>
+                   <option value="NCON">North Concord/Martinez</option>
+                   <option value="OAKL">Oakland Int'l Airport </option>
+                   <option value="ORIN">Orinda </option>
+                    <option value="PITT">Pittsburg/Bay Point </option>
+                   <option value="PHIL">Pleasant Hill/Contra Costa Centre </option>
+                   <option value="POWL">Powell St. </option>
+                   <option value="RICH">Richmond </option>
+                   <option value="ROCK">Rockridge</option>
+                   <option value="SBRN">San Bruno </option>
+                   <option value="SFIA">San Francisco Int'l Airport </option>
+                   <option value="SANL">San Leandro </option>
+                   <option value="SHAY">South Hayward </option>
+                   <option value="SSAN">South San Francisco</option>
+                   <option value="UCTY">Union City</option>
+                   <option value="WCRK">Walnut Creek</option>
+                   <option value="WDUB">West Dublin/Pleasanton </option>
+                   <option value="WOAK">West Oakland</option>
+          </select>
+            </div>
+            <div class="form-group">
+              <label for="inputarrival">Arrival</label>
+              <!-- <input list="arrivallist" class="form-control" name="inputarrival" id="inputarrival" placeholder="Enter Arrival Station"> -->
+              <select id="arrivallist">
+                <option value="12TH">12th St. Oakland City Center</option>
+                <option value="16TH">16th St. Mission</option>
+                <option value="19TH">19th St. Oakland </option>
+                <option value="19TH_N">19th St. Oakland </option>
+                <option value="24TH">24th St. Mission</option>
+                <option value="ASHB">Ashby</option>
+                <option value="BALB">Balboa Park</option>
+                <option value="BAYF">Bay Fair</option>
+                <option value="CAST">Castro Valley </option>
+                <option value="CIVC">Civic Center/UN Plaza</option>
+                <option value="COLS">Coliseum </option>
+                <option value="COLM">Colma</option>
+                <option value="CONC">Concord </option>
+                <option value="DALY">Daly City </option>
+                <option value="DBRK">Downtown Berkeley </option>
+                <option value="DUBL">Dublin/Pleasanton </option>
+                <option value="DELN">El Cerrito del Norte </option>
+                <option value="PLZA">El Cerrito Plaza </option>
+                <option value="EMBR">Embarcadero </option>
+                <option value="FRMT">Fremont </option>
+                <option value="FTVL">Fruitvale </option>
+                <option value="GLEN">Glen Park </option>
+                <option value="HAYW">Hayward </option>
+                <option value="LAFY">Lafayette </option>
+                <option value="LAKE">Lake Merritt </option>
+                <option value="MCAR">MacArthur</option>
+                <option value="MCAR_S">MacArthur</option>
+                <option value="MLBR">Millbrae </option>
+                <option value="MONT">Montgomery St.</option>
+                <option value="NBRK">North Berkeley</option>
+                <option value="NCON">North Concord/Martinez</option>
+                <option value="OAKL">Oakland Int'l Airport </option>
+                <option value="ORIN">Orinda </option>
+                 <option value="PITT">Pittsburg/Bay Point </option>
+                <option value="PHIL">Pleasant Hill/Contra Costa Centre </option>
+                <option value="POWL">Powell St. </option>
+                <option value="RICH">Richmond </option>
+                <option value="ROCK">Rockridge</option>
+                <option value="SBRN">San Bruno </option>
+                <option value="SFIA">San Francisco Int'l Airport </option>
+                <option value="SANL">San Leandro </option>
+                <option value="SHAY">South Hayward </option>
+                <option value="SSAN">South San Francisco</option>
+                <option value="UCTY">Union City</option>
+                <option value="WCRK">Walnut Creek</option>
+                <option value="WDUB">West Dublin/Pleasanton </option>
+                <option value="WOAK">West Oakland</option>
+            </select>
+            </div>
+            <button  class="btn btn-default" id ="findtrains">Find Trains</button>
+          </form>
+
+<div id='spinner' class='spinner'></div>
+
+<hr/>
+
+  <!-- List of Trains Shows here -->
+  <div id="listoftrains"></div>
+
+    <script type="text/html" id='stoptimes_List'>
+     <table id ="stoptimes-table" class="table">
+       <thead>
+
+          <tr>
+             <th> Trip Id </th>
+             <th>Arrival Time</th>
+             <th>Departure Time</th>
+             <th>Stop ID</th>
+             <th>Stop Sequence</th>
+              <th>Stop Destination</th>
+          </tr>
+       </thead>
+       <tbody>
+         <% _.each(stoptimestabledata, function(stoptimesdata) { %>
+           <tr>
+               <td> <%= stoptimesdata.trip_id %></td>
+               <td> <%= stoptimesdata.arrival_time %></td>
+               <td> <%= stoptimesdata.departure_time %></td>
+               <td> <%= stoptimesdata.stop_id %></td>
+               <td> <%= stoptimesdata.stop_sequence %></td>
+               <td> <%= stoptimesdata.stop_headsign %></td>
+             </tr>
+         <% });%>
+     </tbody >
+    </table>
+    </script>
+
+
+     <div id="departuretimetablelist"></div>
+    <script type="text/html" id='departuretimes_List'>
+     <table id ="departure-table" class="table">
+       <thead>
+
+          <tr>
+             <th> Trip Id </th>
+             <th>Arrival Time</th>
+             <th>Departure Time</th>
+             <th>Stop ID</th>
+             <th>Stop Sequence</th>
+              <th>Stop Destination</th>
+          </tr>
+       </thead>
+       <tbody>
+         <% _.each(deptimestabledata, function(departuretimesdata) { %>
+           <tr>
+               <td> <%= departuretimesdata.trip_id %></td>
+               <td> <%= departuretimesdata.arrival_time %></td>
+               <td> <%= departuretimesdata.departure_time %></td>
+               <td> <%= departuretimesdata.stop_id %></td>
+               <td> <%= departuretimesdata.stop_sequence %></td>
+               <td> <%= departuretimesdata.stop_headsign %></td>
+             </tr>
+         <% });%>
+     </tbody >
+    </table>
+    </script>
+
+
+
+  </div>
+
+  <!-- <div class="loader">
+      <svg viewBox="0 0 32 32" width="32" height="32">
+        <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+      </svg>
+    </div> -->
+
+
+</body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
+<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script src="/js/spin.min.js"></script>
+
+<!-- <script src="js/underscore.js"></script> -->
+<script src="js/papaparse.js"></script>
+<script src="js/idb.js"></script>
+<script src="js/app.js"></script>
+
+
+</html>
