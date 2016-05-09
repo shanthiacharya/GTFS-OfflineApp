@@ -1,7 +1,4 @@
 
-
-
-
   var form = document.getElementById("searchtrainsform");
   var trainarray = [];
   var departure;
@@ -33,7 +30,7 @@
 
   function init() {
       indexedDBHelper.open().then(function(){
-          alert ("init success");
+        //  alert ("init success");
 
           //addgtfsstations();
       }, function(err){
@@ -53,19 +50,18 @@
          var selectedarrival = selectarrival.options[selectarrival.selectedIndex];
          arrival = selectedarrival.value;
 
-        //  indexedDBHelper.deleteTodo(1);
-        //  indexedDBHelper.deleteTodo(2);
+
           indexedDBHelper.addgtfsstations(departure,arrival).then(function(){
-            alert ("addtodo success");
+          //  alert ("addtodo success");
         }, function(err){
             alert(err);
         });
 
-        indexedDBHelper.retreivegtfsstations(departure,arrival).then(function(){
-          alert ("retreive success");
-      }, function(err){
-          alert(err);
-      });
+      //   indexedDBHelper.retreivegtfsstations(departure,arrival).then(function(){
+      //   //  alert ("retreive success");
+      // }, function(err){
+      //     alert(err);
+      // });
         //departure = '';
         return false;
     };

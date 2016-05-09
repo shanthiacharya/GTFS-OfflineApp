@@ -50,7 +50,7 @@ var indexedDBHelper = function(){
         //Wrapping logic inside a promise
         var promise = new Promise(function(resolve, reject){
 
-          alert ( "id: " + lastIndex + "departure: " + departure + "arrival:" + arrival);
+          //alert ( "id: " + lastIndex + "departure: " + departure + "arrival:" + arrival);
             //Sending a request to add an item
             //
             var request = store.put({
