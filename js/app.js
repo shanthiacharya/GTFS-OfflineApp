@@ -452,6 +452,7 @@ function loaddeparturetimesDataTable() {
       "bPaginate": true,
       "bFilter": true,
       "bInfo": true,
+      "responsive": true,
       "aaSorting": [[ 0, "asc" ]],
       "aoColumns": [
          {
@@ -485,9 +486,9 @@ function loaddeparturetimesDataTable() {
 
 
 
-// if ('serviceWorker' in navigator) {
-//    navigator.serviceWorker
-//    .register('./sw.js')
-//    .then (function() { console.log('Servie Worker Registered'); });
-//
-// }
+if ('serviceWorker' in navigator) {
+   navigator.serviceWorker
+   .register('./sw.js')
+   .then (function() { console.log('Service Worker Registered'); });
+
+}

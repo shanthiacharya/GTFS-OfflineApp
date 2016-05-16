@@ -16,7 +16,14 @@ self.addEventListener('install', function(event) {
       // And add resources to it
       return cache.addAll([
         './',
-        './data/routes.txt'
+        './data/routes.txt',
+        './data/stop_times.txt',
+        './js/app.js',
+        './js/papaparse.js',
+        './js/spin.min.js',
+        './js/idb.js',
+        './css/styles.css'
+
         // 'style.css',
         // 'logging.js',
         // 'script.js',
