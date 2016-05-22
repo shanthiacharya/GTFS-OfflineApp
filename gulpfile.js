@@ -7,7 +7,7 @@ var browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
-gulp.task('default',['copy-html','scripts','copy-css'],function(){
+gulp.task('default',['copy-html','scripts','copy-css','copy-data'],function(){
 
     console.log('Gulp is running correctly')
     gulp.watch('*.html', ['copy-html']);
@@ -23,7 +23,16 @@ gulp.task('copy-html', function() {
     console.log('Gulp is copying html')
     gulp.src('./*.html')
         .pipe(gulp.dest('./dist'));
+    gulp.src(['./*.js','!./g*.js'])
+          .pipe(gulp.dest('./dist'));
 });
+gulp.task('copy-data', function() {
+
+    console.log('Gulp is copying css')
+    gulp.src('data/*.txt')
+        .pipe(gulp.dest('./dist/data'));
+});
+
 gulp.task('copy-css', function() {
 
     console.log('Gulp is copying css')
@@ -34,6 +43,7 @@ gulp.task('copy-css', function() {
 
 gulp.task('dist', [
     'copy-html',
+    'copy-data',
     'scripts',
     'copy-css'
 

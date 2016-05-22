@@ -6,7 +6,10 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.css">
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.dataTables.css"> -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.dataTables.min.css">
+
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
@@ -140,86 +143,104 @@
 
 <hr/>
 
-  <!-- List of Trains Shows here -->
-  <div id="listoftrains"></div>
 
-    <script type="text/html" id='stoptimes_List'>
-     <table id ="stoptimes-table" class="table">
-       <thead>
+<!-- List of Trains Shows here -->
+<div id="listoftrains"></div>
 
-          <tr>
-             <th> Trip Id </th>
-             <th>Arrival Time</th>
-             <th>Departure Time</th>
-             <th>Stop ID</th>
-             <th>Stop Sequence</th>
-              <th>Stop Destination</th>
-          </tr>
-       </thead>
-       <tbody>
-         <% _.each(stoptimestabledata, function(stoptimesdata) { %>
-           <tr>
-               <td> <%= stoptimesdata.trip_id %></td>
-               <td> <%= stoptimesdata.arrival_time %></td>
-               <td> <%= stoptimesdata.departure_time %></td>
-               <td> <%= stoptimesdata.stop_id %></td>
-               <td> <%= stoptimesdata.stop_sequence %></td>
-               <td> <%= stoptimesdata.stop_headsign %></td>
-             </tr>
-         <% });%>
-     </tbody >
-    </table>
-    </script>
+  <script type="text/html" id='stoptimes_List'>
+    <h1 class="page-header">  Arrival Trains </h1>
+   <table id ="stoptimes-table" class="table">
+     <thead>
 
-
-     <div id="departuretimetablelist"></div>
-    <script type="text/html" id='departuretimes_List'>
-     <table id ="departure-table" class="table">
-       <thead>
-
-          <tr>
-             <th> Trip Id </th>
-             <th>Arrival Time</th>
-             <th>Departure Time</th>
-             <th>Stop ID</th>
-             <th>Stop Sequence</th>
-              <th>Stop Destination</th>
-          </tr>
-       </thead>
-       <tbody>
-         <% _.each(deptimestabledata, function(departuretimesdata) { %>
-           <tr>
-               <td> <%= departuretimesdata.trip_id %></td>
-               <td> <%= departuretimesdata.arrival_time %></td>
-               <td> <%= departuretimesdata.departure_time %></td>
-               <td> <%= departuretimesdata.stop_id %></td>
-               <td> <%= departuretimesdata.stop_sequence %></td>
-               <td> <%= departuretimesdata.stop_headsign %></td>
-             </tr>
-         <% });%>
-     </tbody >
-    </table>
-    </script>
+        <tr>
+           <!-- <th> Trip Id </th> -->
+           <th>Arrival Time</th>
+           <th>Departure Time</th>
+           <th>Stop ID</th>
+           <th>Stop Sequence</th>
+            <th>Stop Destination</th>
+        </tr>
+     </thead>
+     <tbody>
+       <% _.each(stoptimestabledata, function(stoptimesdata) { %>
+         <tr>
+             <!-- <td> <%= stoptimesdata.trip_id %></td> -->
+             <td> <%= stoptimesdata.arrival_time %></td>
+             <td> <%= stoptimesdata.departure_time %></td>
+             <td> <%= stoptimesdata.stop_id %></td>
+             <td> <%= stoptimesdata.stop_sequence %></td>
+             <td> <%= stoptimesdata.stop_headsign %></td>
+           </tr>
+       <% });%>
+   </tbody >
+  </table>
+  </script>
 
 
+   <div id="departuretimetablelist"></div>
+  <script type="text/html" id='departuretimes_List'>
+  <h1 class="page-header">  Departure Trains </h1>
 
-  </div>
+   <table id ="departure-table" class="table">
+     <thead>
+
+        <tr>
+           <!-- <th> Trip Id </th> -->
+           <th>Arrival Time</th>
+           <th>Departure Time</th>
+           <th>Stop ID</th>
+           <th>Stop Sequence</th>
+            <th>Stop Destination</th>
+        </tr>
+     </thead>
+     <tbody>
+       <% _.each(deptimestabledata, function(departuretimesdata) { %>
+         <tr>
+             <!-- <td> <%= departuretimesdata.trip_id %></td> -->
+             <td> <%= departuretimesdata.arrival_time %></td>
+             <td> <%= departuretimesdata.departure_time %></td>
+             <td> <%= departuretimesdata.stop_id %></td>
+             <td> <%= departuretimesdata.stop_sequence %></td>
+             <td> <%= departuretimesdata.stop_headsign %></td>
+           </tr>
+       <% });%>
+   </tbody >
+  </table>
+  </script>
 
 
 
+</div>
 
 </body>
+<script>
+      // // Let's register our serviceworker
+      // navigator.serviceWorker.register('sw.js', {
+      //   // The scope cannot be parent to the script url
+      //   scope: './'
+      // });
 
+      if ('serviceWorker' in navigator) {
+         navigator.serviceWorker
+         .register('sw.js')
+         .then (function() { console.log('Service Worker Registered'); });
+
+      }
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+<!-- https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
-<script src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.min.js"></script>
+
 <script src="js/spin.min.js"></script>
 
 <!-- <script src="js/underscore.js"></script> -->
 <script src="js/papaparse.min.js"></script>
 <script src="js/idb.js"></script>
 <script src="js/app.js"></script>
+<script src="logging.js"></script>
 
 
 </html>

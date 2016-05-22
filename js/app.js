@@ -411,12 +411,14 @@ function loadstoptimesDataTable() {
       "bPaginate": true,
       "bFilter": true,
       "bInfo": true,
+      "responsive": true,
       "aaSorting": [[ 0, "asc" ]],
       "aoColumns": [
-         {
-              "sWidth": "10%"
-              // "sType": "formatted-num"
-          },{
+        //  {
+        //       "sWidth": "10%"
+        //       // "sType": "formatted-num"
+        //   },
+          {
               "sWidth": "30%"
               // "sType": "formatted-num"
           },{
@@ -455,10 +457,11 @@ function loaddeparturetimesDataTable() {
       "responsive": true,
       "aaSorting": [[ 0, "asc" ]],
       "aoColumns": [
-         {
-              "sWidth": "10%"
-              // "sType": "formatted-num"
-          },{
+        //  {
+        //       "sWidth": "10%"
+        //       // "sType": "formatted-num"
+        //   },
+        {
               "sWidth": "30%"
               // "sType": "formatted-num"
           },{
@@ -485,10 +488,9 @@ function loaddeparturetimesDataTable() {
 
 
 
-
-if ('serviceWorker' in navigator) {
-   navigator.serviceWorker
-   .register('./sw.js')
-   .then (function() { console.log('Service Worker Registered'); });
-
-}
+// if ('serviceWorker' in navigator) {
+//    navigator.serviceWorker
+//    .register('./sw.js')
+//    .then (function() { console.log('Service Worker Registered'); });
+//
+// }
