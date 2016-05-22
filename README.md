@@ -3,10 +3,10 @@ Udacity-Nano-Project-2- Public Transportation App
 
 This is a responsive web application to view the BART schedule.
 Works for both desktop and mobile.
-Uses GTFS data  
-Users can select a departure and arrival train station, and see a list of trains
-Works offline when network connectivity doesn't exists using Serviceworker
-
+Uses GTFS data.   
+Users can select a departure and arrival train station, and see a list of trains. 
+Works offline when network connectivity doesn't exists using Serviceworker.
+ 
 Grunt file to automate the front end workflow
 Installation
 
